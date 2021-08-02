@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body,
+html,
+#root,
+.app {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+ul {
+  list-style-type: none;
+}
+
+.app {
+  display: flex;
+  font-family: Poppins;
+}
+
+/*--------- Navbar ------------*/
+.navbar {
+  flex: 2;
+  background: rgb(0, 110, 255);
+  height: 100%;
+  padding: 3rem 0;
+}
+
+.navbar-form {
+  display: flex;
+  padding: 0 0.5em;
+}
+
+.navbar-form-input {
+  width: 70%;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    position: absolute;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: 300ms;
+  }
+
+  .navbar.active {
+    transform: translateX(0);
+    box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  /* .navbar::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3);
+  } */
+
+  .navbar-toggler {
+    display: flex;
+    align-items: center;
+    background: inherit;
+    color: white;
+    position: absolute;
+    top: 1rem;
+    left: 100%;
+    width: fit-content;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 200ms;
+  }
+
+  .navbar-toggler:hover {
+    opacity: 0.9;
+  }
+
+  .navbar-toggler i {
+    margin-left: 0.5em;
+  }
+
+  .navbar.active .navbar-toggler i {
+    transform: rotate(0.5turn);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*--------- Todolis ---------*/
+.lists .list-item {
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #eee;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  transition: 250ms;
+}
+
+.list-item:hover {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list-item.active {
+  background: white;
+  color: teal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-container {
+  background: teal;
+  flex: 5;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.todolist {
+  height: fit-content;
+  width: 80%;
+  max-width: 500px;
+  margin-top: 5rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 0.3em;
+  box-shadow: 0.5em 0.5em 1.5em -0.5em rgb(0 0 0 / 50%);
+}
+
+.todolist-title {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
