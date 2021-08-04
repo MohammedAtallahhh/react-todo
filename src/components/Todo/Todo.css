@@ -1,0 +1,108 @@
+.list-container {
+  background: hsl(var(--h), var(--s), var(--l));
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  transition: background 500ms;
+}
+
+.todolist {
+  height: fit-content;
+  width: 90%;
+  max-width: 500px;
+  font-size: 1rem;
+  margin-top: 5rem;
+  background: white;
+  padding: 2em;
+  border-radius: 0.3em;
+  box-shadow: 0.5em 0.5em 1.5em -0.5em rgb(0 0 0 / 50%);
+}
+
+.todolist-title {
+  border-bottom: 1px solid rgb(228, 228, 228);
+  padding-bottom: 0.5em;
+  margin-bottom: 1.5em;
+  font-size: clamp(1.5rem, 1.2rem + 2vw, 2.2rem);
+  background: linear-gradient(
+    to right,
+    hsl(calc(var(--h) + 20), 70%, 40%),
+    hsl(calc(var(--h) + 40), 40%, 5%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.todolist-form-input {
+  color: var(--text-dark-900);
+  background: var(--bg-input-light);
+}
+
+.todolist-form-input:focus {
+  box-shadow: inset 0.2em -0.2em 0.1em hsla(var(--h), var(--s), var(--l), 0.7),
+    0 0 2em hsla(var(--h), var(--s), var(--l), 0.3);
+}
+
+.todo {
+  --l: 97%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #eee;
+  margin-bottom: 1rem;
+  user-select: none;
+  border-bottom: 2px solid #eee;
+  font-size: 1em;
+  border-radius: 0.5em;
+  background: hsl(var(--h), var(--s), var(--l));
+  color: var(--text-dark-300);
+  padding-right: 1em;
+}
+
+.todo.done {
+  background: hsl(var(--h), var(--s), 95%);
+}
+
+.todo-label {
+  cursor: pointer;
+  padding: 0.8em 0.5em;
+  border-radius: inherit;
+  font-weight: 500;
+}
+
+.todo.done .todo-label {
+  text-decoration: line-through;
+  color: var(--text-dark-50);
+}
+
+.todo:hover,
+.todo:focus {
+  --l: 90%;
+  /* filter: invert(0.07); */
+}
+
+.todo-check {
+  display: inline-block;
+  margin-right: 1rem;
+
+  margin-left: 0.5rem;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.todo .close {
+  margin-left: auto;
+  color: var(--text-dark-50);
+  border-radius: 50%;
+}
+
+.todo .close:hover {
+  color: var(--text-dark-300);
+  background: hsl(var(--h), var(--s), calc(var(--l) - 10%));
+  /* color: white; */
+}
+
+.number-of-tasks {
+  color: var(--text-dark-100);
+  text-transform: uppercase;
+}

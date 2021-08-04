@@ -1,0 +1,139 @@
+/*--------- Navbar ------------*/
+.navbar {
+  font-size: 1rem;
+  flex: 2;
+  height: 100%;
+  padding: 3rem 1rem;
+  background: var(--bg-dark);
+  border-right: 1px solid var(--bg-darker);
+
+  transition: background 400ms;
+}
+
+.navbar-title {
+  color: white;
+  margin-bottom: 2em;
+}
+
+.navbar-form,
+.todolist-form {
+  display: flex;
+}
+
+.navbar-form-input {
+  background: var(--bg-darker);
+  color: var(--text-light-900);
+  width: 200px;
+}
+
+.navbar-form-input:focus {
+  box-shadow: inset 0.2em -0.2em 0.1em hsla(var(--h), var(--s), var(--l), 0.5),
+    0 0 2em hsla(var(--h), var(--s), calc(var(--l) - 50%), 0.5);
+}
+
+.navbar-form-input::placeholder {
+  color: var(--text-light-100);
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+.lists .list-item {
+  cursor: pointer;
+  color: var(--text-light-300);
+  margin: 0.5em 0;
+  transition: 250ms;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsla(var(--h), var(--s), var(--l), 0.2);
+}
+
+.list-item:hover,
+.list-item.active {
+  color: var(--text-light-900);
+}
+
+.list-item.active {
+  background: hsla(var(--h), var(--s), var(--l), 0.9);
+}
+
+.list-item span {
+  flex: 1;
+  padding: 0.7em;
+}
+
+.list-item .close {
+  margin-right: 0.5em;
+}
+
+.list-item.active .close {
+  color: var(--text-light-500);
+}
+
+.list-item.active .close:hover,
+.list-item.active .close:focus {
+  color: var(--text-light-900);
+}
+
+/*-------------------------
+ Media Queries ***********
+------------------------*/
+@media (max-width: 800px) {
+  html {
+    font-size: 90%;
+  }
+
+  .navbar {
+    position: absolute;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: 300ms;
+  }
+
+  .navbar.active {
+    transform: translateX(0);
+    box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-toggler {
+    display: flex;
+    align-items: center;
+    background: inherit;
+    color: white;
+    position: absolute;
+    top: 1rem;
+    left: 100%;
+    width: fit-content;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 200ms;
+  }
+
+  .navbar-toggler:hover {
+    opacity: 0.9;
+  }
+
+  .navbar-toggler i {
+    margin-left: 0.5em;
+  }
+
+  .navbar.active .navbar-toggler {
+    transform: translateX(-100%);
+    background: var(--bg-darker);
+  }
+
+  .navbar.active .navbar-toggler i {
+    transform: rotate(0.5turn);
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 85%;
+  }
+}
