@@ -32,6 +32,13 @@ export class App extends Component {
 
     //   console.log(+getComputedStyle(html).getPropertyValue("--h"));
     // }, 10000);
+    html.addEventListener("click", (e) => {
+      let active = this.state.navActive;
+      if (!active) return;
+      if (e.target.closest(".navbar")) return;
+
+      this.toggleNav();
+    });
   }
 
   toggleNav = () => {
@@ -167,6 +174,8 @@ export class App extends Component {
     this.setState({
       lists,
     });
+
+    localStorage.setItem("lists", JSON.stringify(lists));
   };
 
   render() {
